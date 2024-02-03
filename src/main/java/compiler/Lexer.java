@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class Lexer {
-	//Define valid characters.
+	//Define valid labels.
     public static final int  EOI = 0;
     public static final int  SEMI = 1;
     public static final int  PLUS = 2;
@@ -25,7 +25,11 @@ public class Lexer {
     private String input_buffer = "";
     private String current = "";
 
-    //Check whether it is a number or a alphabet
+	/**
+	 * Check whether a chart is a number or a alphabet
+	 * @param c chart
+	 * @return
+	 */
     private boolean isAlnum(char c) {
     	if (Character.isAlphabetic(c) == true ||
     		    Character.isDigit(c) == true) {
@@ -35,7 +39,10 @@ public class Lexer {
     	return false;
     }
 
-    //Read the input and return the value corresponding to the current character.
+	/**
+	 * Read the input and return the value corresponding to the current character.
+	 * @return
+	 */
     private int lex() {
     
     	while (true) {
