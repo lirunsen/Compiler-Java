@@ -1,2 +1,2 @@
 # Compiler-Java
-A simple compiler for arithmetic expressions, designed for learning compiler theory
+This is a simple compiler written in Java, designed for learning compiler theory. It can compile arithmetic expressions into pseudo-assembly language.
