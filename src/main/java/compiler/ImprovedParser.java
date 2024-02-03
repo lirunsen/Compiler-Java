@@ -3,7 +3,7 @@ package compiler;
 public class ImprovedParser {
 
     private Lexer lexer;
-    private boolean isLegalStatement = true;
+    public boolean isLegalStatement = true;
     
     public ImprovedParser(Lexer lexer) {
     	this.lexer = lexer;

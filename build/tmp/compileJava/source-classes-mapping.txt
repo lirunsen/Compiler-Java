@@ -1,8 +1,10 @@
 compiler/Lexer.java
  compiler.Lexer
-compiler/Compiler.java
- compiler.Compiler
 compiler/BasicParser.java
  compiler.BasicParser
 compiler/ImprovedParser.java
  compiler.ImprovedParser
+compiler/Parser.java
+ compiler.Parser
+compiler/Compiler.java
+ compiler.Compiler

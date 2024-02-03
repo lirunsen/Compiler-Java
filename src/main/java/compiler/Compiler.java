@@ -6,7 +6,10 @@ public class Compiler {
 		Lexer lexer = new Lexer();
 //		lexer.runLexer();
 //		BasicParser basicParser = new BasicParser(lexer);
-		ImprovedParser improvedParser = new ImprovedParser(lexer);
-		improvedParser.statements();
+//		ImprovedParser improvedParser = new ImprovedParser(lexer);
+//		improvedParser.statements();
+
+		Parser parser = new Parser(lexer);
+		parser.statements();
 	}
 }
