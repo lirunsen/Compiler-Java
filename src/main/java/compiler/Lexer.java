@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 
 public class Lexer {
+	//Define valid characters.
     public static final int  EOI = 0;
     public static final int  SEMI = 1;
     public static final int  PLUS = 2;
@@ -12,6 +13,8 @@ public class Lexer {
     public static final int  RP = 5;
     public static final int  NUM_OR_ID = 6;
     public static final int  UNKNOWN_SYMBOL = 7;
+    public static final int  MINUS = 8;
+    public static final int  DIVIDE = 9;
     
     private int lookAhead = -1;
     
@@ -21,7 +24,8 @@ public class Lexer {
     
     private String input_buffer = "";
     private String current = "";
-    
+
+    //Check whether it is a number or a alphabet
     private boolean isAlnum(char c) {
     	if (Character.isAlphabetic(c) == true ||
     		    Character.isDigit(c) == true) {
@@ -30,7 +34,8 @@ public class Lexer {
     	
     	return false;
     }
-    
+
+    //Read the input and return the value corresponding to the current character.
     private int lex() {
     
     	while (true) {
@@ -65,35 +70,33 @@ public class Lexer {
     		    	yyleng = 0;
     		    	yytext = current.substring(0, 1);
     		    	switch (current.charAt(i)) {
-    		    	case ';': current = current.substring(1); return SEMI;
-    		    	case '+': current = current.substring(1); return PLUS;
-    		    	case '*': current = current.substring(1);return TIMES;
-    		    	case '(': current = current.substring(1);return LP;
-    		    	case ')': current = current.substring(1);return RP;
-    		    	
-    		    	case '\n':
-    		    	case '\t':
-    		    	case ' ': current = current.substring(1); break;
-    		    	
-    		    	default:
-    		    		if (isAlnum(current.charAt(i)) == false) {
-    		    			return UNKNOWN_SYMBOL;
-    		    		}
-    		    		else {
-    		    			
-    		    			while (i < current.length() && isAlnum(current.charAt(i))) {
-								boolean tst = isAlnum(current.charAt(i));
-								char tt =current.charAt(i);
-								System.out.println(tst);
-								System.out.println(tt);
-    		    				i++;
-    		    				yyleng++;
-    		    			} // while (isAlnum(current.charAt(i)))
-    		    			
-    		    			yytext = current.substring(0, yyleng);
-    		    			current = current.substring(yyleng); 
-    		    			return NUM_OR_ID;
-    		    		}
+						case ';': current = current.substring(1); return SEMI;
+						case '+': current = current.substring(1); return PLUS;
+						case '*': current = current.substring(1); return TIMES;
+						case '-': current = current.substring(1); return MINUS;
+						case '/': current = current.substring(1); return DIVIDE;
+						case '(': current = current.substring(1); return LP;
+						case ')': current = current.substring(1); return RP;
+
+						case '\n':
+						case '\t':
+						case ' ': current = current.substring(1); break;
+
+						default:
+							if (isAlnum(current.charAt(i)) == false) {
+								return UNKNOWN_SYMBOL;
+							}
+							else {
+
+								while (i < current.length() && isAlnum(current.charAt(i))) {
+									i++;
+									yyleng++;
+								} // while (isAlnum(current.charAt(i)))
+
+								yytext = current.substring(0, yyleng);
+								current = current.substring(yyleng);
+								return NUM_OR_ID;
+							}
     		    		
     		    	} //switch (current.charAt(i))
     		    }//  for (int i = 0; i < current.length(); i++) 
@@ -103,7 +106,8 @@ public class Lexer {
     
     public boolean match(int token) {
     	if (lookAhead == -1) {
-    		lookAhead = lex();
+//    		lookAhead = lex();
+			advance();
     	}
     	
     	return token == lookAhead;
@@ -123,27 +127,33 @@ public class Lexer {
     private String token() {
     	String token = "";
     	switch (lookAhead) {
-    	case EOI:
-    		token = "EOI";
-    		break;
-    	case PLUS:
-    		token = "PLUS";
-    		break;
-    	case TIMES:
-    		token = "TIMES";
-    		break;
-    	case NUM_OR_ID:
-    		token = "NUM_OR_ID";
-    		break;
-    	case SEMI:
-    		token = "SEMI";
-    		break;
-    	case LP:
-    		token = "LP";
-    		break;
-    	case RP:
-    		token = "RP";
-    		break;
+			case EOI:
+				token = "EOI";
+				break;
+			case PLUS:
+				token = "PLUS";
+				break;
+			case TIMES:
+				token = "TIMES";
+				break;
+			case MINUS:
+				token = "MINUS";
+				break;
+			case DIVIDE:
+				token = "DIVIDE";
+				break;
+			case NUM_OR_ID:
+				token = "NUM_OR_ID";
+				break;
+			case SEMI:
+				token = "SEMI";
+				break;
+			case LP:
+				token = "LP";
+				break;
+			case RP:
+				token = "RP";
+				break;
     	}
     	
     	return token;
