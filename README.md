@@ -44,8 +44,7 @@ term' -> *or/ factor term' | ''
 factor -> NUM_OR_ID | LP expression RP
 ```  
 For the arithmetic expression 1+2, we can obtain the following syntax analysis:  
-![2024-02-04 114937](https://github.com/lirunsen/Compiler-Java/assets/82029821/8b9932a9-49f0-483e-821b-c78660592a7b)
-
+![2024-02-04 115006](https://github.com/lirunsen/Compiler-Java/assets/82029821/f815b599-ef39-4fd5-9a6c-13cef26eb689)  
 
 ## Create Pseudo-assembly Language
 Generate assembly language suitable for execution by programmable devices such as CPU. The compiler in this project produces pseudo-assembly language.  
