@@ -2,7 +2,8 @@
 This is a simple compiler written in Java, designed for learning compiler theory. It can compile arithmetic expressions into pseudo-assembly language.  
 Run `Compiler.main()`, and Input arithmetic expressions in the console like:  
 ```1+(5-3)*9/3;
-end```
+end
+```  
 Then, you can get the  pseudo-assembly language complied from the arithmetic expressions above:  
 ```t0 = 1
 t1 = 5
@@ -12,7 +13,8 @@ t2 = 9
 t1 *= t2
 t2 = 3
 t1 /= t2
-t0 += t1```
+t0 += t1
+```  
 
 ## Lexical Analysis
 The process of converting a character sequence into a sequence of tokens.  
