@@ -48,4 +48,6 @@ For the arithmetic expression 1+2, we can obtain the following syntax analysis:
 
 
 ## Create Pseudo-assembly Language
-Generate assembly language suitable for execution by programmable devices such as CPU. The compiler in this project produces pseudo-assembly language.
+Generate assembly language suitable for execution by programmable devices such as CPU. The compiler in this project produces pseudo-assembly language.  
+We can use an image to show an example of pseudo-assembly language generation of the arithmetic expressions `1+2*3+4` using this compiler:  
+![2024-02-04 115006](https://github.com/lirunsen/Compiler-Java/assets/82029821/1ec8a912-4a28-4887-87eb-595794ee7555)
