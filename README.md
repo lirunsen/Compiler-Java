@@ -36,7 +36,7 @@ Examples in arithmetic expressions:
 A process that involves analyzing an input text consisting of a sequence of tokens based on a given formal grammar, and determining its syntactic structure.  
 An example for this compiler:   
 ```
-statements -> expression ; | expression ; statements
+statements -> '' | expression ; statements
 expression -> term expression'
 expression' -> PLUS/MINUS term expression' | ''
 term -> factor term'
